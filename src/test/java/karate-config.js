@@ -14,5 +14,8 @@ function fn() {
   } else if (env == 'e2e') {
     // customize
   }
+  config.testAfterFeature = function () {
+    karate.call('classpath:examples/users/afterFeature.feature');
+  };
   return config;
 }

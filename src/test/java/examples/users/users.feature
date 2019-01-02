@@ -9,7 +9,8 @@ Feature: sample karate test script
     Refer to the Cucumber-Eclipse wiki for more: http://bit.ly/2mDaXeV
 
     Background:
-    * url 'https://jsonplaceholder.typicode.com'
+        * url 'https://jsonplaceholder.typicode.com'
+        * configure afterFeature = testAfterFeature
 
     Scenario: get all users and then get the first user by id
 
@@ -18,9 +19,3 @@ Feature: sample karate test script
         Then status 200
 
         * def first = response[0]
-        * set first.key = "value"
-
-        Given path 'users', first.id
-        When method get
-        Then status 200
-        And match response contains first
